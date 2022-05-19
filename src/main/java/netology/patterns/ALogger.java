@@ -1,6 +1,8 @@
 package netology.patterns;
 
-import java.util.Date;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ALogger implements ILogger{
     private static ALogger instance;
@@ -21,8 +23,8 @@ public class ALogger implements ILogger{
     @Override
     public void log(String str) {
         counter++;
-        Date currentTime = new Date();
-        System.out.println(currentTime.toString() + " " + counter + " " + str);
+        LocalDateTime currentTime = LocalDateTime.now();
+        System.out.println(currentTime.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")).toString() + " " + counter + " " + str);
     }
 
 }
